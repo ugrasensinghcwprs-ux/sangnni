@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sangnni Care & Academy | Premium Salon & Laser Clinic Pune</title>
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #c59b27;
+      --primary-dark: #997316;
+      --primary-light: #f9f2db;
+      --slate-900: #0f172a;
+      --slate-800: #1e293b;
+      --slate-700: #334155;
+      --slate-100: #f1f5f9;
+      --slate-50: #f8fafc;
+      --rose-accent: #e07a5f;
+      --radius: 16px;
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--slate-800);
+      background-color: #0b0f19;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, .font-serif {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* Fixed Ambient Backdrop */
+    .site-bg-overlay {
+      position: fixed;
+      inset: 0;
+      background-image: url('watermarked_img_12787149976602809044.png');
+      background-size: cover;
+      background-position: center;
+      z-index: -2;
+      opacity: 0.18;
+      filter: saturate(1.2);
+    }
+    .site-bg-tint {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(11, 15, 25, 0.94) 0%, rgba(15, 23, 42, 0.96) 100%);
+      backdrop-filter: blur(8px);
+      z-index: -1;
+    }
+
+    /* Announcement Banner */
+    .promo-banner {
+      background: linear-gradient(90deg, #997316, #c59b27, #e07a5f);
+      color: white;
+      padding: 9px 16px;
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+    }
+    .coupon-badge {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 3px 10px;
+      border-radius: 20px;
+      border: 1px dashed rgba(255, 255, 255, 0.6);
+      cursor: pointer;
+    }
+
+    /* Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 14px 28px;
+    }
+    .nav-container {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .logo-mark {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--primary), var(--rose-accent));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+    .logo-text {
+      color: #fff;
+      font-size: 1.25rem;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+    .logo-text span {
+      display: block;
+      font-size: 0.7rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 400;
+      color: var(--primary);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--primary); }
+    .header-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .btn {
+      padding: 9px 20px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-gold {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      box-shadow: 0 4px 14px rgba(197, 155, 39, 0.35);
+    }
+    .btn-gold:hover { transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent;
+      color: #e2e8f0;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .btn-outline:hover { background: rgba(255, 255, 255, 0.05); }
+
+    /* Hero Section */
+    .hero {
+      max-width: 1240px;
+      margin: 40px auto 80px;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(197, 155, 39, 0.15);
+      border: 1px solid rgba(197, 155, 39, 0.3);
+      color: var(--primary-light);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: 3.2rem;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--primary);
+    }
+    .hero p {
+      color: #94a3b8;
+      font-size: 1.05rem;
+      margin-bottom: 32px;
+      max-width: 520px;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 36px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 24px;
+    }
+    .stat-val {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: #64748b;
+      margin-top: 4px;
+    }
+
+    /* Video Tour Wrapper */
+    .hero-media {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+    .hero-video {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      display: block;
+    }
+    .video-tag {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 8px 16px;
+      border-radius: 30px;
+      color: #fff;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background: #10b981;
+      border-radius: 50%;
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+      animation: pulse 1.6s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+      70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    }
+
+    /* Common Section Styles */
+    section {
+      max-width: 1240px;
+      margin: 80px auto;
+      padding: 0 24px;
+    }
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 48px;
+    }
+    .section-tag {
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .section-title {
+      font-size: 2.4rem;
+      color: #fff;
+      line-height: 1.2;
+    }
+    .section-sub {
+      color: #94a3b8;
+      font-size: 0.95rem;
+      margin-top: 10px;
+    }
+
+    /* Machinery Showcase Gallery */
+    .machinery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .machinery-card {
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .machinery-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(197, 155, 39, 0.4);
+    }
+    .machinery-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+    .machinery-info {
+      padding: 16px;
+    }
+    .machinery-info h4 {
+      color: #fff;
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+    }
+    .machinery-info p {
+      color: #94a3b8;
+      font-size: 0.8rem;
+      line-height: 1.5;
+    }
+
+    /* Services Menu Section */
+    .services-container {
+      background: rgba(30, 41, 59, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      padding: 36px;
+      backdrop-filter: blur(12px);
+    }
+    .service-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      background: rgba(255, 255, 255, 0.05);
+      color: #94a3b8;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 10px 22px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .tab-btn.active, .tab-btn:hover {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+    .service-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .service-card {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.2s;
+    }
+    .service-card:hover { border-color: rgba(197, 155, 39, 0.5); }
+    .service-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--primary);
+      background: rgba(197, 155, 39, 0.12);
+      padding: 3px 10px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      width: fit-content;
+    }
+    .service-card h3 {
+      font-size: 1.25rem;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .service-card p {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      margin-bottom: 16px;
+    }
+    .service-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 12px;
+    }
+    .price-wrap {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .price-offer {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .price-mrp {
+      font-size: 0.85rem;
+      color: #64748b;
+      text-decoration: line-through;
+    }
+    .duration {
+      font-size: 0.75rem;
+      color: #64748b;
+    }
+
+    /* Interactive Estimator */
+    .calculator-box {
+      margin-top: 48px;
+      background: linear-gradient(135deg, rgba(197, 155, 39, 0.1), rgba(224, 122, 95, 0.08));
+      border: 1px solid rgba(197, 155, 39, 0.25);
+      border-radius: 20px;
+      padding: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+    .calc-info h4 {
+      color: #fff;
+      font-size: 1.2rem;
+      margin-bottom: 6px;
+    }
+    .calc-info p {
+      color: #cbd5e1;
+      font-size: 0.85rem;
+    }
+    .calc-action {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .calc-total {
+      text-align: right;
+    }
+    .calc-total-label { font-size: 0.75rem; color: #94a3b8; }
+    .calc-total-price { font-size: 1.8rem; font-weight: 700; color: #fff; }
+
+    /* Footer */
+    footer {
+      background: #080c14;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 60px 24px 30px;
+      margin-top: 120px;
+    }
+    .footer-content {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-col h5 {
+      color: #fff;
+      font-size: 1rem;
+      margin-bottom: 16px;
+    }
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-col a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--primary); }
+    .footer-bottom {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: #64748b;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero { grid-template-columns: 1fr; gap: 32px; }
+      .machinery-grid { grid-template-columns: repeat(2, 1fr); }
+      .service-cards-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-content { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .machinery-grid { grid-template-columns: 1fr; }
+      .service-cards-grid { grid-template-columns: 1fr; }
+      .calculator-box { flex-direction: column; align-items: flex-start; }
+      .calc-action { width: 100%; justify-content: space-between; }
+      .footer-content { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Background -->
+  <div class="site-bg-overlay"></div>
+  <div class="site-bg-tint"></div>
+
+  <!-- Promotion Banner -->
+  <div class="promo-banner">
+    <span>✨ Pune Inaugural Offer: Flat 30% OFF on all Laser & Permanent Aesthetics!</span>
+    <span class="coupon-badge" onclick="navigator.clipboard.writeText('PUNEGLOW30'); alert('Coupon PUNEGLOW30 copied!')">
+      Code: <strong>PUNEGLOW30</strong> <i class="fa-regular fa-copy"></i>
+    </span>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <div class="logo-mark">S</div>
+        <div class="logo-text">
+          Sangnni
+          <span>Care & Academy • Pune</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#services">Clinical Services</a></li>
+        <li><a href="#machinery">Machinery</a></li>
+        <li><a href="#tour">Studio Tour</a></li>
+        <li><a href="#academy">Academy</a></li>
+      </ul>
+      <div class="header-actions">
+        <button class="btn btn-outline" onclick="alert('Admin PIN prompt: Default is 1234')">
+          <i class="fa-solid fa-lock"></i> Admin
+        </button>
+        <a href="#book" class="btn btn-gold">
+          <i class="fa-regular fa-calendar-check"></i> Book Session
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main>
+    <section class="hero">
+      <div class="hero-left">
+        <div class="hero-badge">
+          <i class="fa-solid fa-award"></i> ISO Certified Aesthetic Care & Training
+        </div>
+        <h1>Elevate Your Beauty With <em>Clinical Precision</em> & Artistry.</h1>
+        <p>
+          Pune's premier destination for Q-Switched Lasers, Korean Hydra-Facials, Semi-Permanent Makeup (PMU), and professional Govt-recognized Cosmetology diplomas.
+        </p>
+        <div class="hero-ctas">
+          <a href="#services" class="btn btn-gold">Explore Treatments</a>
+          <a href="#machinery" class="btn btn-outline">View Equipment</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="stat-val">100%</div>
+            <div class="stat-label">Sterile Clinical Hygiene</div>
+          </div>
+          <div>
+            <div class="stat-val">2</div>
+            <div class="stat-label">Pune Branches (FC Rd & Kothrud)</div>
+          </div>
+          <div>
+            <div class="stat-val">4.9 ★</div>
+            <div class="stat-label">Google Verified Reviews</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-media" id="tour">
+        <video class="hero-video" autoplay muted loop playsinline poster="watermarked_img_12787149976602809044.png">
+          <source src="http://googleusercontent.com/generated_video_content/3907859338272618801" type="video/mp4">
+        </video>
+        <div class="video-tag">
+          <div class="pulse-dot"></div>
+          Live Studio Ambience Walkthrough
+        </div>
+      </div>
+    </section>
+
+    <!-- Machinery & Equipment Gallery -->
+    <section id="machinery">
+      <div class="section-header">
+        <span class="section-tag">Clinical Equipment</span>
+        <h2 class="section-title">State-of-the-Art Aesthetic Technology</h2>
+        <p class="section-sub">We utilize US-FDA approved machinery and sterilized stations to guarantee visible results with minimal downtime.</p>
+      </div>
+      <div class="machinery-grid">
+        <div class="machinery-card">
+          <img src="IMG_4234.jpg" alt="Aesthetic Laser & Tattoo Removal Machine">
+          <div class="machinery-info">
+            <h4>Nd:YAG Laser & Tattoo Removal</h4>
+            <p>Targeted pigment fragmentation for deep scar revision, melasma correction, and permanent ink clearance.</p>
+          </div>
+        </div>
+        <div class="machinery-card">
+          <img src="IMG_4232.jpg" alt="Ergonomic Hair Spa Basin Station">
+          <div class="machinery-info">
+            <h4>Hydraulic Spa Wash Station</h4>
+            <p>Pressure-balanced Japanese head spa loungers for deep conditioning and scalp detox therapies[cite: 6].</p>
+          </div>
+        </div>
+        <div class="machinery-card">
+          <img src="IMG_4228.jpg" alt="Sterile Preparation Unit & Cosmetic Serums">
+          <div class="machinery-info">
+            <h4>Sterile Dispensary Unit</h4>
+            <p>Sealed single-use cartridge management for microneedling, BB Glow, and microblading pigments[cite: 2].</p>
+          </div>
+        </div>
+        <div class="machinery-card">
+          <img src="IMG_4227.jpg" alt="High-CRI Ring Light Styling Stations">
+          <div class="machinery-info">
+            <h4>High-CRI Daylight Stations</h4>
+            <p>Precision-lit beauty workstations calibrated for photorealistic micro-pigmentation and bridal makeup[cite: 1].</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services & Pricing -->
+    <section id="services">
+      <div class="services-container">
+        <div class="section-header">
+          <span class="section-tag">Our Rate Card</span>
+          <h2 class="section-title">Signature Clinical & Salon Services</h2>
+          <p class="section-sub">Transparent pricing with 30% inaugural discounts applied at checkout.</p>
+        </div>
+
+        <div class="service-tabs">
+          <button class="tab-btn active">Laser & PMU</button>
+          <button class="tab-btn">Skin & Medi-Facials</button>
+          <button class="tab-btn">Hair & Scalp</button>
+          <button class="tab-btn">Bridal Makeover</button>
+          <button class="tab-btn">Academy Diplomas</button>
+        </div>
+
+        <div class="service-cards-grid">
+          <div class="service-card">
+            <div>
+              <span class="service-badge">POPULAR</span>
+              <h3>Korean Medical Hydra-Facial</h3>
+              <p>7-stage vortex extraction, enzymatic peeling, ultrasound deep infusion, and cold-hammer pore tightener.</p>
+            </div>
+            <div>
+              <div class="service-meta">
+                <div class="price-wrap">
+                  <span class="price-offer">₹2,499</span>
+                  <span class="price-mrp">₹3,500</span>
+                </div>
+                <span class="duration"><i class="fa-regular fa-clock"></i> 60 min</span>
+              </div>
+              <button class="btn btn-gold" style="width: 100%;">Book Hydra-Facial</button>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div>
+              <span class="service-badge">ADVANCED</span>
+              <h3>Laser Carbon Photo-Facial</h3>
+              <p>Liquid carbon peel activated by Nd:YAG laser to minimize pores, clear blackheads, and brighten dull skin tone.</p>
+            </div>
+            <div>
+              <div class="service-meta">
+                <div class="price-wrap">
+                  <span class="price-offer">₹2,799</span>
+                  <span class="price-mrp">₹4,000</span>
+                </div>
+                <span class="duration"><i class="fa-regular fa-clock"></i> 45 min</span>
+              </div>
+              <button class="btn btn-gold" style="width: 100%;">Book Photo-Facial</button>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div>
+              <span class="service-badge">SEMI-PERMANENT</span>
+              <h3>Permanent Eyebrow Ombre</h3>
+              <p>Micro-pigmentation creating soft powdered arches using organic European pigments lasting up to 2 years.</p>
+            </div>
+            <div>
+              <div class="service-meta">
+                <div class="price-wrap">
+                  <span class="price-offer">₹5,599</span>
+                  <span class="price-mrp">₹8,000</span>
+                </div>
+                <span class="duration"><i class="fa-regular fa-clock"></i> 120 min</span>
+              </div>
+              <button class="btn btn-gold" style="width: 100%;">Book Brows</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Package Estimator -->
+        <div class="calculator-box">
+          <div class="calc-info">
+            <h4>Ready to customize your bridal or skin transformation package?</h4>
+            <p>Combine 2 or more clinical services and automatically unlock an additional 10% combo waiver.</p>
+          </div>
+          <div class="calc-action">
+            <div class="calc-total">
+              <div class="calc-total-label">Estimated Combo Total</div>
+              <div class="calc-total-price">₹4,768</div>
+            </div>
+            <button class="btn btn-gold" onclick="alert('Inquiry submitted! Our Pune coordinator will call you in 15 mins.')">
+              Confirm Package
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <a href="#" class="logo" style="margin-bottom: 16px;">
+          <div class="logo-mark">S</div>
+          <div class="logo-text">
+            Sangnni
+            <span>Care & Academy</span>
+          </div>
+        </a>
+        <p style="color: #94a3b8; font-size: 0.85rem; max-width: 300px;">
+          Providing Pune with certified clinical laser treatments, permanent makeup, and industry-standard cosmetology training programs.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#services">Treatment Rate Card</a></li>
+          <li><a href="#machinery">Laser Technology</a></li>
+          <li><a href="#tour">Salon Tour</a></li>
+          <li><a href="#academy">Student Portal</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Pune Studios</h5>
+        <ul>
+          <li><a href="#"><i class="fa-solid fa-location-dot"></i> FC Road, Deccan Gymkhana</a></li>
+          <li><a href="#"><i class="fa-solid fa-location-dot"></i> Paud Road, Kothrud</a></li>
+          <li><a href="tel:+919876543210"><i class="fa-solid fa-phone"></i> +91 98765 43210</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Academy Verification</h5>
+        <ul>
+          <li><a href="#">Govt. Recognized Certification</a></li>
+          <li><a href="#">Secure Course Streaming</a></li>
+          <li><a href="#">Student Device Management</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Sangnni Care & Academy. All Rights Reserved.</div>
+      <div>Designed for Pune, Maharashtra.</div>
+    </div>
+  </footer>
+
+</body>
+</html>
